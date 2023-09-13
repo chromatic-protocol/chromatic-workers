@@ -8,4 +8,4 @@ env = { }
 crons = [ ]
 
 [vars]
-ALLOWED_ORIGINS =	["localhost", "preview-testnet-chromatic-protocol.netlify.app", "testnet.chromatic.finance"]
+ALLOWED_ORIGINS =	'{ "0": "localhost", "1": "preview-testnet-chromatic-protocol.netlify.app", "2" : "testnet.chromatic.finance" }'

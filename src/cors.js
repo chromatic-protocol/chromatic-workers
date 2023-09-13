@@ -1,5 +1,5 @@
 function withCors(request, response, allowedOrigins) {
-	const allowedOriginList = JSON.parse(allowedOrigins);
+	const allowedOriginList = Object.values(JSON.parse(allowedOrigins));
 
 	const origin = request.headers.get('origin');
 
