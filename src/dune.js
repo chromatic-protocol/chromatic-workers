@@ -1,8 +1,8 @@
-const apiUrl = 'https://api.dune.com/api/v1';
+import { DUNE_API_URL } from './constants';
 
 export default {
 	async queryById({ queryId, apiKey }) {
-		const url = `${apiUrl}/query/${queryId}/results`;
+		const url = `${DUNE_API_URL}/query/${queryId}/results`;
 		const res = await fetch(url, {
 			headers: {
 				'x-dune-api-key': apiKey,

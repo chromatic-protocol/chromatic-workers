@@ -1,4 +1,5 @@
 import dune from './dune';
+import cmc from './coinmarketcap';
 import { withCors } from './cors';
 
 class Router {
@@ -58,6 +59,18 @@ router.get('/dune/:queryId', async ({ params, env, request }) => {
 
 router.get('/dune', async ({ env }) => {
 	return new Response('/dune/:queryId');
+});
+
+router.get('/cmc/:symbol', async ({ params, env, request }) => {
+	const response = await cmc.getInfo({
+		symbol: params.symbol,
+		apiKey: env.CMC_API_KEY,
+	});
+	return new Response(response.body, withCors(request, response, env.ALLOWED_ORIGINS));
+});
+
+router.get('/cmc', async ({ env }) => {
+	return new Response('/cmc/:symbol');
 });
 
 // 404 for everything else
