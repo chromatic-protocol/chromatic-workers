@@ -57,7 +57,7 @@ router.get('/dune/:queryId', async ({ params, env, request }) => {
 });
 
 router.get('/dune', async ({ env }) => {
-	return new Response(env.DUNE_API_KEY);
+	return new Response('/dune/:queryId');
 });
 
 // 404 for everything else
